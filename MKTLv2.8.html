@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKTL TOOL v2.8</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }    
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .main-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #8a2be2, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .main-content p {
+            font-size: 20px;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+        
+        .download-btn {
+            background: linear-gradient(90deg, #8a2be2, #6a1b9a);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(138, 43, 226, 0.5);
+        }
+        
+        /* Login Form */
+        #login-form {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px auto;
+            display: none;
+        }
+        
+        #login-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #8a2be2;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cccccc;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            color: #ffffff;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #8a2be2;
+        }
+        
+        .login-btn {
+            background: linear-gradient(90deg, #8a2be2, #6a1b9a);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            background: linear-gradient(90deg, #6a1b9a, #8a2be2);
+        }
+        
+        /* Download Section */
+        #download-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            margin: 40px auto;
+            display: none;
+        }
+        
+        .download-link {
+            display: inline-block;
+            background: linear-gradient(90deg, #8a2be2, #6a1b9a);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .download-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(138, 43, 226, 0.5);
+        }
+        
+        /* Token Section */
+        .token-section {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        .token-label {
+            font-size: 14px;
+            color: #8a2be2;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .token-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>MKTL TOOL v2.8</h1>
+            <p>Download the most powerful tool for free! Log in to start your download.</p>
+            <button class="download-btn" onclick="showLogin()">Download Now</button>
+        </div>
+        
+        <!-- Login Form -->
+        <div id="login-form">
+            <h2>Login to Download</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Log In</button>
+            </form>
+        </div>
+        
+        <!-- Download Section -->
+        <div id="download-section">
+            <p style="color: #6200ff; font-weight: bold;">Login successful! You can now download:</p>
+            <a href="https://pixeldrain.com/u/YLUTnpAf/" class="download-link" download>
+                Download MKTL TOOL v2.8
+            </a>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                File hosted on Pixeldrain (Size: ~62.4MB)
+            </p>
+            
+            <!-- Token Section -->
+            <div class="token-section">
+                <div class="token-label">TOKEN</div>
+                <div class="token-value">AUFJG-S9MXH-4TRMT-R1Y3P</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('download-section').style.display = 'none';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            // Simulate login success
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('download-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
